@@ -9,11 +9,11 @@ Laravel cli
 
 Step 1: Creating the project
 
-laravel new MegDevWebinar
+    laravel new MegDevWebinar
 
-cd MegDevWebinar
+    cd MegDevWebinar
 
-php artisan serve
+    php artisan serve
 
 --------------------------------------------------------
 
@@ -23,12 +23,12 @@ created a new db called megdevwebinar in MySql or Postgres
 
 update the db details in .env file whic is in the project root folder:
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=megdevwebinar
-DB_USERNAME=root
-DB_PASSWORD=
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=megdevwebinar
+    DB_USERNAME=root
+    DB_PASSWORD=
 
 -------------------------------------------------------------
 
@@ -37,21 +37,21 @@ Step 3: Creating the authentication system
 Package for authentication (not using the latest laravel Jetstream):
 https://github.com/rogervila/laravel-legacy-ui
 
-composer require rogervila/laravel-legacy-ui
+    composer require rogervila/laravel-legacy-ui
 
 // Generate login / registration scaffolding...
-php artisan ui bootstrap --auth
+    php artisan ui bootstrap --auth
 
 Bootstrap scaffolding requires a modification for webpack.mix.js file:
-mix.js('resources/js/app.js', 'public/js')
-.sass('resources/sass/app.scss', 'public/css');
+    mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css');
 
 migrate the auth tables:
-php artisan migrate
+    php artisan migrate
 
 Compile the frontend:
-npm install
-npm run dev
+    npm install
+    npm run dev
 
 Login and registration is completed.
 
@@ -59,7 +59,7 @@ Login and registration is completed.
 
 Step 4: Creating the model, migration, and controller with resources
 
-php artisan make:model Webinar -mcr
+    php artisan make:model Webinar -mcr
 
 if you run php artisan make:model --help you can see all the available options
 -m, --migration Create a new migration file for the model.
@@ -75,16 +75,16 @@ open:
 database/migrations/2021_09_18_171134_create_webinars_table.php
 
 add the columns:
-$table->string('topic');
-$table->date('date');
-$table->time('time');
-$table->string('presenter');
-$table->string('mode');
-$table->string('youtube_embed_code');
-$table->string('source_code');
+    $table->string('topic');
+    $table->date('date');
+    $table->time('time');
+    $table->string('presenter');
+    $table->string('mode');
+    $table->string('youtube_embed_code');
+    $table->string('source_code');
 
 save the file and run:
-php artisan migrate
+    php artisan migrate
 
 the table will be created automatically.
 
@@ -93,7 +93,7 @@ the table will be created automatically.
 Step 5: Creating the route for webinars
 
 Goto routes/web.php and add:
-Route::resource('webinars', App\Http\Controllers\WebinarController::class);
+    Route::resource('webinars', App\Http\Controllers\WebinarController::class);
 
 ---------------------------------------------------------------
 
@@ -102,7 +102,22 @@ Step 6: Creating the views
 goto resources/views/
 add a new folder webinars
 create the files
-index.blade.php
-create.blade.php
-edit.blade.php
-show.blade.php
+    index.blade.php
+    create.blade.php
+    edit.blade.php
+    show.blade.php
+
+
+-----------------------------------------------------------------
+
+API
+
+Install sanctum
+
+    composer require laravel/sanctum
+
+    php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+
+Create WebinarApiController inside Controlers/API:
+    php artisan make:controller API/WebinarApiController -r
+    php artisan make:controller API/LoginApiController

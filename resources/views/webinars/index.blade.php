@@ -4,7 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+
             @if(count($webinars)>0)
+
+            <h2 class="text-center mt-4">
+                <strong>
+                    List of Webinars
+                </strong>
+            </h2>
+
             @foreach ($webinars as $webinar)
             <div class="card my-5">
                 <div class="card-body">

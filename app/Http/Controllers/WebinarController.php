@@ -25,7 +25,7 @@ class WebinarController extends Controller
      */
     public function index()
     {
-        $webinars = Webinar::orderBy('created_at', 'desc')->paginate(20);
+        $webinars = Webinar::orderBy('date', 'desc')->get();
 
         return view('webinars.index', ['webinars' => $webinars]);
     }

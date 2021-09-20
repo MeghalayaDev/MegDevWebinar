@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2021 at 09:14 AM
+-- Generation Time: Sep 20, 2021 at 08:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -91,6 +91,18 @@ CREATE TABLE `personal_access_tokens` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 1, 'Webinar', '630320e69131b762741a2cb2b98048ff3fbf5154978efdba702eaf0c47e613e7', '[\"*\"]', NULL, '2021-09-20 12:24:24', '2021-09-20 12:24:24'),
+(2, 'App\\Models\\User', 1, 'Webinar', 'ba01d54941b14196f666c645abc13671e59c115f2bea28f2729b86c4a720d985', '[\"*\"]', NULL, '2021-09-20 12:24:27', '2021-09-20 12:24:27'),
+(3, 'App\\Models\\User', 1, 'Webinar', 'a3f9735fe75a8511bc908c28c61c3c2fb8deb41a5cbf58e5826995fd4866d971', '[\"*\"]', NULL, '2021-09-20 12:24:45', '2021-09-20 12:24:45'),
+(4, 'App\\Models\\User', 1, 'Webinar', '4f78ba0e118a585c28a8a7ae2fb11b4c43421f50d43bd906f3a0315cb4219aa6', '[\"*\"]', NULL, '2021-09-20 12:25:30', '2021-09-20 12:25:30'),
+(5, 'App\\Models\\User', 1, 'Webinar', 'ac2fd0c4e97fff38f27955d40e65c219718337cbe25008bdbf49555011606db9', '[\"*\"]', NULL, '2021-09-20 12:25:32', '2021-09-20 12:25:32'),
+(6, 'App\\Models\\User', 1, 'Webinar', '81299b451ed1447dd88ca20afa90ae3846eeca940ed4b8f889e411b2f755ea3e', '[\"*\"]', '2021-09-20 12:40:42', '2021-09-20 12:31:30', '2021-09-20 12:40:42');
+
 -- --------------------------------------------------------
 
 --
@@ -113,7 +125,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', NULL, '$2y$10$dS7UXP9XzunUuEEnOdJKz.glfPZ.RVWTt6iJKTiTrqY28E0VIYZc.', 'O1DukBvGPpGBNTBpvd1zPuGDbMMYAQ7TinFcXDvatVflDSyMNKaqXjQNK27P', '2021-09-18 11:03:14', '2021-09-18 11:03:14');
+(1, 'Admin', 'admin@gmail.com', NULL, '$2y$10$dS7UXP9XzunUuEEnOdJKz.glfPZ.RVWTt6iJKTiTrqY28E0VIYZc.', 'ARn7OeQqDaz8znkhBEcW2cikRAYidknFMiZp2AZRVe8pST2ClQauR7FJzvHw', '2021-09-18 11:03:14', '2021-09-18 11:03:14');
 
 -- --------------------------------------------------------
 
@@ -206,7 +218,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -218,7 +230,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `webinars`
 --
 ALTER TABLE `webinars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
